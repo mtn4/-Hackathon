@@ -1,0 +1,58 @@
+
+
+p {
+    margin-top:  25px;
+}
+
+:root{
+    --img-size-h : 100px ;
+    --img-size-w : 150px ;
+}
+
+.img{
+
+    width: var(--img-size-w);
+    height: var(--img-size-h);
+}
+
+.Ynet{
+    background: url('../../assets/sites/ynet.png') no-repeat center center/cover ;
+    background-size: contain ;
+
+}
+.Albayan{
+    background: url('../../assets/sites/albayan.png') no-repeat center center/cover ;
+    background-size: contain ;
+
+}
+
+.Panet{
+    background: url('../../assets/sites/panet.png') no-repeat center center/cover ;
+    background-size: contain ;
+
+}
+
+.Themoscowtimes{
+    background: url('../../assets/sites/moscow_times.png') no-repeat center center/cover ;
+    background-size: contain ;
+
+}
+
+.Jansatta{
+    background: url('../../assets/sites/jansatta.png') no-repeat center center/cover ;
+    background-size: contain ;
+
+}
+
+.sites {
+    display: flex; 
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.team{
+    display: flex; 
+    justify-content: center;
+    gap: 10px;
+}
