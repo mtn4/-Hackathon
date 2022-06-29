@@ -44,6 +44,10 @@ p {
 
 }
 
+.Deutsche_Welle{
+    background: url('../../assets/sites/dw.jpg') no-repeat center center/cover ;
+    background-size: contain ;
+}
 .sites {
     display: flex; 
     justify-content: center;
@@ -54,5 +58,21 @@ p {
 .team{
     display: flex; 
     justify-content: center;
+    flex-wrap: wrap;
     gap: 10px;
 }
+.team-item{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.team-img{
+    width: var(--img-size-w);
+    height: var(--img-size-h);
+
+}
+
+
+

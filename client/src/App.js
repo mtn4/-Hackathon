@@ -4,6 +4,7 @@ import "./App.css";
 
 import Homepage from "./pages/home/Homepage.jsx";
 import ContextProvider from "./context/language.js";
+import About from "./pages/about/About";
 
 const URI = (() => {
   if (process.env.NODE_ENV === "production") {
@@ -27,7 +28,8 @@ function App() {
 
   return (
     <ContextProvider>
-      <Homepage sixTopArticles={sixTopArticles} />
+      {/* <Homepage sixTopArticles={sixTopArticles} /> */}
+      <About />
     </ContextProvider>
   );
 }

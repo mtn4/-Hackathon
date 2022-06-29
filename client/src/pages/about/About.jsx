@@ -1,7 +1,13 @@
 
 import {useState , useEffect} from 'react' 
 import './about.css' ;
-import React from 'react';
+import React from 'react'; 
+import ReactRoundedImage from "react-rounded-image";
+import Fade from 'react-reveal/Fade';
+import Bounce from 'react-reveal/Bounce';
+
+
+
 
 export default function About () {
 
@@ -20,38 +26,45 @@ let about = {
     {name : 'Jansatta' , img : '../../assets/sites/jansatta.png', link : 'https://www.jansatta.com/'} ,
     {name : 'Themoscowtimes' , img : '../../assets/sites/moscow_times.png', link : 'https://www.themoscowtimes.com/'} ,
     {name : 'Panet' , img : '../../assets/sites/panet.png', link : 'https://www.panet.co.il/'} ,
-    {name : 'Albayan' , img : '../../assets/sites/albayan.png', link : 'https://www.albayan.ae/'} ,],
+    {name : 'Albayan' , img : '../../assets/sites/albayan.png', link : 'https://www.albayan.ae/'} , 
+    {name : 'Deutsche_Welle' , img : '../../assets/sites/dw.jpg', link : 'https://www.dw.com/'}
+
+
+    ],
 
 
     team : {
-        he :  [{name : 'אבישי' , img : ''} ,
-        {name : 'דמיטרי' , img : ''} ,
-        {name : 'אמיר' , img : ''} ,
-        {name : 'מתן' , img : ''} ,
-        {name : 'עדן' , img : ''} ,
-        {name : 'שרונה' , img : ''} ] ,
+        en : [{name : 'Avishai' , img : "./images/user.png"} ,
+        {name : 'Dmitry' , img : "./images/user.png"} ,
+        {name : 'Amir' , img : "./images/user.png"} ,
+        {name : 'Matan' , img : "./images/user.png"} ,
+        {name : 'Eden' , img : "./images/user.png"} ,
+        {name : 'Sarona' , img : "./images/user.png"} 
+      ] ,
+
+        // he :  [{name : 'אבישי' , img : ''} ,
+        // {name : 'דמיטרי' , img : ''} ,
+        // {name : 'אמיר' , img : ''} ,
+        // {name : 'מתן' , img : ''} ,
+        // {name : 'עדן' , img : ''} ,
+        // {name : 'שרונה' , img : ''} ] ,
             
 
-                ru : [{name : 'Авишай' , img : ''} ,
-                {name : 'Дмитрий' , img : ''} ,
-                {name : 'Амир' , img : ''} ,
-                {name : 'Матан' , img : ''} ,
-                {name : 'Эден' , img : ''} ,
-                {name : 'Шарона' , img : ''} ], 
+        //         ru : [{name : 'Авишай' , img : ''} ,
+        //         {name : 'Дмитрий' , img : ''} ,
+        //         {name : 'Амир' , img : ''} ,
+        //         {name : 'Матан' , img : ''} ,
+        //         {name : 'Эден' , img : ''} ,
+        //         {name : 'Шарона' , img : ''} ], 
 
-              en : [{name : 'Avishai' , img : ''} ,
-              {name : 'Dmitry' , img : ''} ,
-              {name : 'Amir' , img : ''} ,
-              {name : 'Matan' , img : ''} ,
-              {name : 'Eden' , img : ''} ,
-              {name : 'Sarona' , img : ''} ] ,
+        
 
-              ar : [{name : 'سارونا' , img : ''} ,
-              {name : 'عدن' , img : ''} ,
-              {name : 'ماتان' , img : ''} ,
-              {name : 'أمير' , img : ''} ,
-              {name : 'ديمتري' , img : ''} ,
-              {name : 'أفيشاي' , img : ''} ] 
+        //       ar : [{name : 'سارونا' , img : ''} ,
+        //       {name : 'عدن' , img : ''} ,
+        //       {name : 'ماتان' , img : ''} ,
+        //       {name : 'أمير' , img : ''} ,
+        //       {name : 'ديمتري' , img : ''} ,
+        //       {name : 'أفيشاي' , img : ''} ] 
             
 
 
@@ -100,20 +113,38 @@ const displayInfo = (info)=>{
 }
 
 const displaySites= (sites)=>{
+    let data = sites.map((item , index )=>{
 
-    let data = sites.map(item =>{
-        return       <div  key={item.name}>
+       return   (
+       <div  key={item.name}>
             <a href={item.link}>
+               <Fade left duration={2000}> 
                 <div className= {` img ${item.name}`}></div>
-            </a>
+                </Fade>
+            </a> 
+            
         </div>
+           )
 
     })
     return data ;
 }
 
 const displayTeam = (team)=>{
-    let data = team.map((item , i) => <p key={i}>{item.name}</p>)
+    let data = team.map((item , i) => {
+
+        return(
+
+            <div  key={i}  className="team-item">
+            <Bounce left>
+             <span>{item.name}</span>
+                <ReactRoundedImage image={require(`${item.img}`)} roundedSize="10"  
+                                    imageWidth="100"  imageHeight="100"  roundedColor="#0000" />
+            </Bounce>
+
+            </div>
+        )
+    })
     return data ;
 }
 
@@ -132,15 +163,9 @@ const displayTeam = (team)=>{
             {displayInfo(about.intro.ru)}
         </div>
 
-    
-
-       
-
         <div className='sites'>
             {displaySites(about.sites)}
         </div>
-
-    
 
         <div className='team'>
             {displayTeam(about.team.en)}
