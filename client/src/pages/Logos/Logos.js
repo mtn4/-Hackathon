@@ -1,12 +1,15 @@
 import React from "react";
 import "./Logos.css";
+import Fade from "react-reveal/Fade";
 
 const Logos = ({ logoName1, logoName2, logoName3 }) => {
   return (
     <div className="logos-container">
-      <div className={`img ${logoName1}`}></div>
-      <div className={`img ${logoName2}`}></div>
-      <div className={`img ${logoName3}`}></div>
+      <Fade left duration={2000}>
+        <div className={`img ${logoName1}`}></div>
+        <div className={`img ${logoName2}`}></div>
+        <div className={`img ${logoName3}`}></div>
+      </Fade>
     </div>
   );
 };

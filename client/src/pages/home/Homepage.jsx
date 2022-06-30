@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Article from "./articles/Articles.jsx";
 import { Link } from "react-router-dom";
 import { myContext } from "../../context/language.js";
+import Flip from 'react-reveal/Flip';
 import "./homepage.css";
 
 const Homepage = () => {
@@ -16,11 +17,14 @@ const Homepage = () => {
               const topArticle = article;
               return (
                 <Link key={"link" + topArticle._id} to={`/article/${article._id}`} className="article-link" style={{ textDecoration: 'none' }}>
-                  <Article
+                         <Flip top>
+                         <Article
                     key={topArticle._id}
                     lang={lang}
                     article={topArticle}
                   />
+                         </Flip>
+                
                 </Link>
               );
             })
