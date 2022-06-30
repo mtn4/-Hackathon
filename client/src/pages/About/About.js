@@ -168,7 +168,7 @@ const MainPage = () => {
         />
       </div>
       <div className="content">
-        <Slide top cascade duration={2000}>
+        <Slide top cascade duration={1800}>
           <div className="intro">{intro}</div>
           <div className="aboutUs">
             <h1>{team[0].aboutUs}</h1>

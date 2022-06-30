@@ -19,10 +19,10 @@ const Homepage = () => {
                 <Link key={"link" + topArticle._id} to={`/article/${article._id}`} className="article-link" style={{ textDecoration: 'none' }}>
                          <Flip top>
                          <Article
-                    key={topArticle._id}
-                    lang={lang}
-                    article={topArticle}
-                  />
+                                key={topArticle._id}
+                                lang={lang}
+                                article={topArticle}
+                        />
                          </Flip>
                 
                 </Link>
